@@ -1,0 +1,119 @@
+????Documents????
+1}
+db.customer.insert({custID:"A123",Amount:"500",status:"A"})
+2}
+db.customer.insert({custID:"A123",Amount:"250",status:"A"})
+3}
+db.customer.insert({custID:"B212",Amount:"200",status:"A"})
+4}
+db.customer.insert({custID:"A123",Amount:"300",status:"D"})
+
+PART A:
+
+a) Find the total amount of each customer.
+db.customer.aggregate([{$group:{_id:"$custID",Total: {$sum:"$Amount"}}}])
+
+b) Find the total amount of each customer whose status is A.
+db.customer.aggregate([{$match:{status:"A"}},{$group:{_id:"null",Total:{$sum:"$Amount"}}}])
+
+c) Find the minimum total amount of each customer whose Status is A
+db.customer.aggregate([{$match:{status:"A"}},{$group:{_id:"null",Minimun:{$sum:"$Amount"}}}])
+
+d) Find the maximum total amount of each customer whose Status is A.
+db.emp.aggregate([{$match:{status:"A"}},{$group:{_id:"null",maximum:{$max:"$Amount"}}}])
+
+e) Find the average total amount of each customer whose Status is A.
+db.emp.aggregate([{$match:{status:"A"}},{$group:{_id:"null",Average:{$avg:"$Amount"}}}])
+
+db.customer.aggregate([{$group: {_id:"$status" , Average: {$avg:"$Amount"}}}])
+db.customer.aggregate([{$group: {_id:"$status" , display: {$push:"$Amount"}}}])
+
+display all documents 
+db.customer.aggregate([{$group: {_id:"$status" , ALL DOCUMENT: {$avg:"$$ROOT"}}}])
+
+
+
+PART - B
+f) Create index on custID.
+db.customer.createIndex({custID: 1})
+
+g) Execute getIndexes.
+db.customer.getIndexes()
+
+h) Drop the index created.
+db.customer.dropIndex({custID: 1})
+
+
+
+ASSIGNEMNT 2(B)
+
+1)create database
+use school
+2)create collection
+db.createCollection("students")
+
+1]
+db.students.insert({name: "Midhu" ,subject: "science" ,marks : 68})
+2]
+db.students.insert({name: "Midhu" ,subject: "maths" ,marks : 98})
+3]
+db.students.insert({name: "Midhu" ,subject: "sports" ,marks : 77})
+4]
+db.students.insert({name: "Akhil" ,subject: "science" ,marks : 67})
+5]
+db.students.insert({name: "Akhil" ,subject: "maths" ,marks : 87})
+6]
+db.students.insert({name: "Akhil" ,subject: "sports" ,marks : 89})
+7]
+db.students.insert({name: "Anish" ,subject: "science" ,marks : 67})
+8]
+db.students.insert({name: "Anish" ,subject: "maths" ,marks : 78})
+9]
+db.students.insert({name: "Anish" ,subject: "sports" ,marks : 90})
+
+
+
+1) to fnd average marks for each student.
+var map1=function(){emit(this.name,this.marks)}
+var reduce1=function(name,marks){return Array.avg(marks)}
+db.students.mapReduce({map1,reduce1,{out:"AverageMarks"}})
+db.Averagemarks.find()
+
+
+2) To fnd total marks for each students
+var map1=function(){emit(this,name,this.marks)}
+var reduce1=function(name,marks){return Array.sum(marks)}
+db.students.mapReduce(map1,reduce1,{out:"Sammy"})
+db.Sammy.find()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

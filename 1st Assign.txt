@@ -1,0 +1,2538 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+Warning: PowerShell detected that you might be using a screen reader and has disabled PSReadLine for compatibility purposes. If you want to re-enable it, run 'Import-Module PSReadLine'.
+
+PS C:\Users\hp> mongosh
+Current Mongosh Log ID: 65103b6c06382ed3385d0b4a
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.1
+Using MongoDB:          6.0.8
+Using Mongosh:          1.10.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-09-20T13:09:41.036+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> show dbs
+Analytics      9.21 MiB
+Ecomerce       8.00 KiB
+PVG           80.00 KiB
+admin         40.00 KiB
+ass2         144.00 KiB
+college      168.00 KiB
+collegeWala   40.00 KiB
+company      216.00 KiB
+config        96.00 KiB
+emp           72.00 KiB
+local         80.00 KiB
+test          16.00 KiB
+test>
+test> use company
+switched to db company
+company> show collections
+DEPT
+emp
+EMP
+company> use emp
+switched to db emp
+emp> use company
+switched to db company
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("650fbbc1cd14d6ddd3e3f293"),
+    eid: 2334,
+    ename: 'Sangram',
+    job: 'Manager',
+    hiredate: ISODate("1970-01-01T00:00:01.951Z"),
+    salary: 45000,
+    hobbies: 'Singing',
+    department: 'Accounting'
+  },
+  {
+    _id: ObjectId("650fbc96cd14d6ddd3e3f294"),
+    eid: 2134,
+    ename: 'Pratik',
+    job: 'Clerk',
+    hiredate: ISODate("1970-01-01T00:00:01.959Z"),
+    salary: 34000,
+    hobbies: 'Dancing',
+    department: 'Accounting'
+  },
+  {
+    _id: ObjectId("650fbe25cd14d6ddd3e3f295"),
+    eid: 5464,
+    ename: 'Harshal',
+    job: 'Manager',
+    hiredate: ISODate("1970-01-01T00:00:01.986Z"),
+    salary: 47000,
+    hobbies: 'Playing',
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("650fbe25cd14d6ddd3e3f296"),
+    eid: 7484,
+    ename: 'Vikas',
+    job: 'Clerk',
+    hiredate: ISODate("1970-01-01T00:00:01.987Z"),
+    salary: 40000,
+    hobbies: 'Photography',
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("650fbe25cd14d6ddd3e3f297"),
+    eid: 3234,
+    ename: 'Abhishek',
+    job: 'Analyst',
+    hiredate: ISODate("1970-01-01T00:00:01.956Z"),
+    salary: 37000,
+    hobbies: 'Cooking',
+    department: 'Research'
+  },
+  {
+    _id: ObjectId("650fc04ecd14d6ddd3e3f298"),
+    eid: 1064,
+    ename: 'Rohan',
+    job: 'Salesman',
+    hiredate: ISODate("1970-01-01T00:00:01.975Z"),
+    salary: 67000,
+    hobbies: 'Dancing',
+    department: 'Accounting'
+  },
+  {
+    _id: ObjectId("650fc068cd14d6ddd3e3f299"),
+    eid: 7404,
+    ename: 'Yash',
+    job: 'Clerk',
+    hiredate: ISODate("1970-01-01T00:00:02.007Z"),
+    salary: 15000,
+    hobbies: 'Gardening',
+    department: 'Operations'
+  },
+  {
+    _id: ObjectId("650fc0a5cd14d6ddd3e3f29a"),
+    eid: 3434,
+    ename: 'Atharav',
+    job: 'Analyst',
+    hiredate: ISODate("1970-01-01T00:00:01.975Z"),
+    salary: 30000,
+    hobbies: 'Painting',
+    department: 'Research'
+  },
+  {
+    _id: ObjectId("650fc0c0cd14d6ddd3e3f29b"),
+    eid: 2064,
+    ename: 'Sanika',
+    job: 'Salesman',
+    hiredate: ISODate("1970-01-01T00:00:01.987Z"),
+    salary: 65000,
+    hobbies: 'Dancing',
+    department: 'Accounting'
+  },
+  {
+    _id: ObjectId("650fc0d0cd14d6ddd3e3f29c"),
+    eid: 1264,
+    ename: 'Tejas',
+    job: 'Salesman',
+    hiredate: ISODate("1970-01-01T00:00:01.998Z"),
+    salary: 37000,
+    hobbies: 'Painting',
+    department: 'Operations'
+  }
+]
+company> db.emp.drop()
+true
+company> db.emp.find()
+
+company> db.emp.insert({eid: 1,ename: "Jon", designation: "Lead Developer",hiredate: ISODate("2013-02-15T00:00:00Z"),salary: 15000,hobbies: ["Reading","Coding"],department: "Production"}
+...
+... db.emp.insert({eid: 1,ename: "Jon", designation: "Lead Developer",hiredate: ISODate("2013-02-15T00:00:00Z"),salary: 15000,hobbies: ["Reading","Coding"],department: "Production"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (3:0)
+
+  1 | db.emp.insert({eid: 1,ename: "Jon", designation: "Lead Developer",hiredate: ISODate("2013-02-15T00:00:00Z"),salary: 15000,hobbies: ["Reading","Coding"],department: "Production"}
+  2 |
+> 3 | db.emp.insert({eid: 1,ename: "Jon", designation: "Lead Developer",hiredate: ISODate("2013-02-15T00:00:00Z"),salary: 15000,hobbies: ["Reading","Coding"],department: "Production"})
+    | ^
+  4 |
+
+company> db.emp.insert({eid: 1,ename: "Jon", designation: "Lead Developer",hiredate: ISODate("2013-02-15T00:00:00Z"),salary: 15000,hobbies: ["Reading","Coding"],department: "Production"})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("65103e1006382ed3385d0b4b") }
+}
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  }
+]
+company> db.emp.insert({eid: 2,ename: "Tirrion", designation: "Analyst",hiredate: ISODate("2012-05-25T00:00:00Z"),salary: 16000,hobbihobbies: ["Reading","Braingames"],department: "Testing"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651043e106382ed3385d0b4c") }
+}
+company> db.emp.insert({eid: 3,ename: "Jamie", designation: "Salesman",hiredate: ISODate("2015-08-03T00:00:00Z"),salary: 9000,hobbieshobbies: ["Speaking","Planning"],department: "Sales"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651043e906382ed3385d0b4d") }
+}
+company> db.emp.insert({eid: 4,ename: "Dany", designation: "CEO",hiredate: ISODate("2009-06-03T00:00:00Z"),salary: 25000,hobbies: ["Reading","Planning"],department: "Management"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651043f306382ed3385d0b4e") }
+}
+company> db.emp.insert({eid: 5,ename: "Arya", designation: "Developer",hiredate: ISODate("2017-10-17T00:00:00Z"),salary: 10000,hobbiehobbies: ["Painting","Coding"],department: "Production"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651043fa06382ed3385d0b4f") }
+}
+company>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+company> db.emp.insert({eid: 6,ename: "Sansa", designation: "Manager",hiredate: ISODate("2014-12-02T00:00:00Z"),salary: 14000,hobbieshobbies: ["Music","planning"],department: "HR"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6510440806382ed3385d0b50") }
+}
+company> db.emp.insert({eid: 7,ename: "Cersie", designation: "Sr manager",hiredate: ISODate("2012-02-08T00:00:00Z"),salary: 17000,hobhobbies: ["Dancing","planning"],department: "HR"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6510441006382ed3385d0b51") }
+}
+company> db.emp.insert({eid: 8,ename: "Dahrio", designation: "Analyst",hiredate: ISODate("2016-08-12T00:00:00Z"),salary: 13000,hobbiehobbies: ["Management","Games"],department: "Testing"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6510441906382ed3385d0b52") }
+}
+company> db.emp.insert({eid: 9,ename: "Theon", designation: "Jr Developer",hiredate: ISODate("2017-08-19T00:00:00Z"),salary: 9000,hobhobbies: ["Reading","Games"],department: "Production"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6510442206382ed3385d0b53") }
+}
+company> db.emp.insert({eid: 10,ename: "Bronn", designation: "Salesman",hiredate: ISODate("2014-05-29T00:00:00Z"),salary: 11000,hobbihobbies: ["Speaking","Reading"],department: "Sales"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("6510442806382ed3385d0b54") }
+}
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    designation: 'Sr manager',
+    hiredate: ISODate("2012-02-08T00:00:00.000Z"),
+    salary: 17000,
+    hobbies: [ 'Dancing', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find().pretty()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    designation: 'Sr manager',
+    hiredate: ISODate("2012-02-08T00:00:00.000Z"),
+    salary: 17000,
+    hobbies: [ 'Dancing', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find().pretty().count()
+10
+company> db.emp.find({$job:{%in:["analysts","salesmen"]}},{ename:1})
+Uncaught:
+SyntaxError: Unexpected token (1:19)
+
+> 1 | db.emp.find({$job:{%in:["analysts","salesmen"]}},{ename:1})
+    |                    ^
+  2 |
+
+company> db.emp.find({$job:{$in:["analysts","salesmen"]}},{ename:1})
+MongoServerError: unknown top level operator: $job. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.
+company> db.emp.find({job:{$in:["analysts","salesmen"]}},{ename:1})
+
+company> db.emp.find({job:{$in:["Analyst","Salesmen"]}},{ename:1})
+
+company> db.emp.find({hiredate:{$in:["Analyst","Salesmen"]}},{ename:1})
+
+company> db.emp.find({designation:{$in:["Analyst","Salesmen"]}},{ename:1})
+[
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' }
+]
+company> db.emp.find({designation:{$in:["Analyst","Salesmen"]}},{ename:1})
+[
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' }
+]
+company> db.emp.find({designation:{$in:["Analyst","Salesmen"]}},{})
+[
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  }
+]
+company> db.emp.find({designation:{$in:["Analyst","Salesman"]}},{})
+[
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({designation:{$in:["Analyst","Salesman"]}},{ename:1})
+[
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({},{eid:1,ename:1,salary:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    salary: 15000
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    salary: 16000
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    salary: 9000
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    salary: 25000
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    salary: 10000
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    salary: 14000
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    salary: 17000
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    salary: 13000
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    salary: 9000
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    salary: 11000
+  }
+]
+company> db.emp.find({job:{$nin:["Manager"]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), ename: 'Dany' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' },
+  { _id: ObjectId("6510440806382ed3385d0b50"), ename: 'Sansa' },
+  { _id: ObjectId("6510441006382ed3385d0b51"), ename: 'Cersie' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({job:{$nin:["Manager"]}},{ename:1,designation:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    ename: 'Jon',
+    designation: 'Lead Developer'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    ename: 'Tirrion',
+    designation: 'Analyst'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    ename: 'Jamie',
+    designation: 'Salesman'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    ename: 'Dany',
+    designation: 'CEO'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    ename: 'Arya',
+    designation: 'Developer'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    ename: 'Sansa',
+    designation: 'Manager'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    ename: 'Cersie',
+    designation: 'Sr manager'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    ename: 'Dahrio',
+    designation: 'Analyst'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    ename: 'Theon',
+    designation: 'Jr Developer'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    ename: 'Bronn',
+    designation: 'Salesman'
+  }
+]
+company> db.emp.find({eid:{$in:[1,3,7,9]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510441006382ed3385d0b51"), ename: 'Cersie' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' }
+]
+company> db.emp.find({eid:{$in:[1,3,7,9]}},{ename:1,eid:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), eid: 1, ename: 'Jon' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), eid: 3, ename: 'Jamie' },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie'
+  },
+  { _id: ObjectId("6510442206382ed3385d0b53"), eid: 9, ename: 'Theon' }
+]
+company> db.emp.find({hiredate:{$gt:ISODate("1981-06-30T00:00:00Z"),$lt:ISODate("1981-12-31T00:00:00Z")}},{ename:1})
+
+company> db.emp.find({hiredate:{$gt:ISODate("1981-06-30T00:00:00Z"),$lt:ISOcompany> db.emp.find({hiredate:{$gt:ISODate("2015-06-30T00:00:00Z"),$lt:ISODate("2015-12-31T00:00:00Z")}},{ename:1})
+[ { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' } ]
+company> db.Emp.distinct("designation")
+[]
+company> db.emp.distinct("designation")
+[
+  'Analyst',
+  'CEO',
+  'Developer',
+  'Jr Developer',
+  'Lead Developer',
+  'Manager',
+  'Salesman',
+  'Sr manager'
+]
+company> db.emp.find({salary:{$lt:(10000)}},{eid:1,ename:1,salary:1})
+[
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    salary: 9000
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    salary: 9000
+  }
+]
+company> db.emp.find({department:"Accounting"},{ename:1,job:1})
+
+company> db.emp.find({department:"Accounting"},{ename:1,designation:1})
+
+company> db.emp.find({department:"Production"},{ename:1,designation:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    ename: 'Jon',
+    designation: 'Lead Developer'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    ename: 'Arya',
+    designation: 'Developer'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    ename: 'Theon',
+    designation: 'Jr Developer'
+  }
+]
+company> db.emp.find({department:"Production"},{ename:1,designation:1,department:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    ename: 'Arya',
+    designation: 'Developer',
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    department: 'Production'
+  }
+]
+company> db.emp.find({ename:/^A/},{})
+[
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  }
+]
+company> db.emp.find({ename:/sh/},{ename:1})
+
+company> db.emp.find({$or:[{ename:/^S/},{ename:/s$/}]})
+[
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  }
+]
+company> db.emp.find({department:{$nin:["HR"]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), ename: 'Dany' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({department:{$nin:["HR"]}},{ename:1}).count()
+8
+company> db.emp.find({department:{$nin:["HR"]}},{ename:1,department:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    ename: 'Jon',
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    ename: 'Tirrion',
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    ename: 'Jamie',
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    ename: 'Dany',
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    ename: 'Arya',
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    ename: 'Dahrio',
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    ename: 'Theon',
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    ename: 'Bronn',
+    department: 'Sales'
+  }
+]
+company> db.emp.find({department:"Sales"}).count()
+2
+company> db.emp.distinct("designation")
+[
+  'Analyst',
+  'CEO',
+  'Developer',
+  'Jr Developer',
+  'Lead Developer',
+  'Manager',
+  'Salesman',
+  'Sr manager'
+]
+company> db.emp.find({salary:{$lt:20000,$gt:10000}},{eid:1,ename:1,salary:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    salary: 15000
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    salary: 16000
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    salary: 14000
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    salary: 17000
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    salary: 13000
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    salary: 11000
+  }
+]
+company> db.emp.find({salary:{$gte:(15000)}},{eid:1,ename:1,salary:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    salary: 15000
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    salary: 16000
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    salary: 25000
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    salary: 17000
+  }
+]
+company> db.emp.find({department:"Sales",salary:10000})
+
+company> db.emp.find({hobbies:["Painting","Reading"]},{ename:1})
+
+company> db.emp.find({$in:{hobbies:["Painting","Reading"]}},{ename:1})
+MongoServerError: unknown top level operator: $in. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.
+company> db.emp.find({hobbies:{$in:["Painting","Reading"]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), ename: 'Dany' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.distinct("hobbies")
+[
+  'Braingames', 'Coding',
+  'Dancing',    'Games',
+  'Management', 'Music',
+  'Painting',   'Planning',
+  'Reading',    'Speaking',
+  'planning'
+]
+company> db.emp.distinct("hobbies")
+[
+  'Braingames', 'Coding',
+  'Dancing',    'Games',
+  'Management', 'Music',
+  'Painting',   'Planning',
+  'Reading',    'Speaking',
+  'planning'
+]
+company>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Microsoft Windows [Version 10.0.22621.2428]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\hp>mongosh
+Current Mongosh Log ID: 652f5e42e4a87690ad0a8c02
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.1
+Using MongoDB:          6.0.8
+Using Mongosh:          1.10.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2023-10-16T19:34:26.319+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use customer
+switched to db customer
+customer> db.customer.find()
+[
+  {
+    _id: ObjectId("652bdcc6036e1e9fd264be53"),
+    custID: 'A123',
+    Amount: 500,
+    status: 'A'
+  },
+  {
+    _id: ObjectId("652bdd2f036e1e9fd264be54"),
+    custID: 'A123',
+    Amount: 250,
+    status: 'A'
+  },
+  {
+    _id: ObjectId("652bdd90036e1e9fd264be55"),
+    custID: 'B212',
+    Amount: 200,
+    status: 'A'
+  },
+  {
+    _id: ObjectId("652bddb9036e1e9fd264be56"),
+    custID: 'A123',
+    Amount: 300,
+    status: 'D'
+  }
+]
+customer> show dbs
+Analytics      9.21 MiB
+Ecomerce       8.00 KiB
+PVG           80.00 KiB
+admin         40.00 KiB
+ass2         208.00 KiB
+college      168.00 KiB
+collegeWala   40.00 KiB
+company      216.00 KiB
+config        60.00 KiB
+customer      72.00 KiB
+emp           72.00 KiB
+local         80.00 KiB
+test          16.00 KiB
+customer> use ass2
+switched to db ass2
+ass2> show collections
+AverageMarks
+AverageMarks:
+customer
+just
+result
+students
+ass2> db.customer.find()
+[
+  {
+    _id: ObjectId("65100014cd14d6ddd3e3f29d"),
+    custID: 'A123',
+    Amount: '500',
+    status: 'A'
+  },
+  {
+    _id: ObjectId("6510001ecd14d6ddd3e3f29e"),
+    custID: 'A123',
+    Amount: '250',
+    status: 'A'
+  },
+  {
+    _id: ObjectId("65100028cd14d6ddd3e3f29f"),
+    custID: 'B212',
+    Amount: '200',
+    status: 'A'
+  },
+  {
+    _id: ObjectId("65100030cd14d6ddd3e3f2a0"),
+    custID: 'A123',
+    Amount: '300',
+    status: 'D'
+  }
+]
+ass2> use company
+switched to db company
+company> show collections
+DEPT
+emp
+EMP
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    designation: 'Sr manager',
+    hiredate: ISODate("2012-02-08T00:00:00.000Z"),
+    salary: 17000,
+    hobbies: [ 'Dancing', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.em.find().sum()
+TypeError: db.em.find().sum is not a function
+company> db.emp.find().sum()
+TypeError: db.emp.find().sum is not a function
+company> db.emp.find().cpunt
+
+company> db.emp.find().count
+[Function: count] AsyncFunction {
+  deprecated: true,
+  returnsPromise: true,
+  serverVersions: [ '0.0.0', '4.0.0' ],
+  apiVersions: [ 0, Infinity ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  returnType: { type: 'unknown', attributes: {} },
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+company> db.emp.find().count()
+10
+company> db.emp.find({designation:{$in:["Analyst","Salesman"}},{ename:1})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:51)
+
+> 1 | db.emp.find({designation:{$in:["Analyst","Salesman"}},{ename:1})
+    |                                                    ^
+  2 |
+
+company> db.emp.find({designation:{$in:["Analyst","Salesman"]}},{ename:1})
+[
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({designation:"Analyst"}},{ename:1})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:35)
+
+> 1 | db.emp.find({designation:"Analyst"}},{ename:1})
+    |                                    ^
+  2 |
+
+company> db.emp.find({designation:"Analyst"},{ename:1})
+[
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' }
+]
+company> db.emp.find({designation:"Salesmna"},{ename:1})
+
+company> db.emp.find({designation:"Salesman"},{ename:1})
+[
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({},{eld:1,ename:1,salary:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    ename: 'Jon',
+    salary: 15000
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    ename: 'Tirrion',
+    salary: 16000
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    ename: 'Jamie',
+    salary: 9000
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    ename: 'Dany',
+    salary: 25000
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    ename: 'Arya',
+    salary: 10000
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    ename: 'Sansa',
+    salary: 14000
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    ename: 'Cersie',
+    salary: 17000
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    ename: 'Dahrio',
+    salary: 13000
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    ename: 'Theon',
+    salary: 9000
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    ename: 'Bronn',
+    salary: 11000
+  }
+]
+company> db.emp.find({},{eid:1,ename:1,salary:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    salary: 15000
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    salary: 16000
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    salary: 9000
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    salary: 25000
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    salary: 10000
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    salary: 14000
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    salary: 17000
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    salary: 13000
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    salary: 9000
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    salary: 11000
+  }
+]
+company> db.emp.find({designation:{$nin:["Manager"]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), ename: 'Dany' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' },
+  { _id: ObjectId("6510441006382ed3385d0b51"), ename: 'Cersie' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({designation:{$nin:["Manager"]}},{ename:1}).count()
+9
+company> db.emp.find({designation:{$nin:["Manager"]}},{ename:1}).count()
+9
+company> db.emp.find({eid:{$in:[1,3,7,9]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510441006382ed3385d0b51"), ename: 'Cersie' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' }
+]
+company> db.emp.find({hiredate:{$gt:ISODate("2015-06-30T00:00:00Z"),$lt:ISODate("2015-12-31T00:00:00Z")}},{ename:1})
+[ { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' } ]
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    designation: 'Sr manager',
+    hiredate: ISODate("2012-02-08T00:00:00.000Z"),
+    salary: 17000,
+    hobbies: [ 'Dancing', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({ename:'Jamie'},{})
+[
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({hiredate:{$gt:ISODate("2015-06-30T00:00:00Z"),$lt:ISODate("2015-12-31T00:00:00Z")}},{eid:1})
+[ { _id: ObjectId("651043e906382ed3385d0b4d"), eid: 3 } ]
+company> db.emp.find({hiredate:{$gt:ISODate("2015-01-01T00:00:00Z"),$lt:ISODate("2015-12-31T00:00:00Z")}},{eid:1})
+[ { _id: ObjectId("651043e906382ed3385d0b4d"), eid: 3 } ]
+company> db.emp.find({hiredate:{$gt:ISODate(),$lt:ISODate()}},{eid:1,ename:1})
+
+company> db.emp.find({hiredate:{$gt:ISODate("2015-08-30T00:00:00Z"),$lt:ISODate("2017-12-31T00:00:00Z")}},{eid:1,ename:1})
+[
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), eid: 5, ename: 'Arya' },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio'
+  },
+  { _id: ObjectId("6510442206382ed3385d0b53"), eid: 9, ename: 'Theon' }
+]
+company> db.emp.find({hiredate:{$gt:ISODate("2015-08-30T00:00:00Z"),$lt:ISODate("2017-12-31T00:00:00Z")}},{eid:1})
+[
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), eid: 5 },
+  { _id: ObjectId("6510441906382ed3385d0b52"), eid: 8 },
+  { _id: ObjectId("6510442206382ed3385d0b53"), eid: 9 }
+]
+company> db.emp.find({hiredate:{$lt:ISODate("2015-08-30T00:00:00Z"),$gt:ISODate("2017-12-31T00:00:00Z")}},{eid:1})
+
+company> db.emp.find({hiredate:{$gt:ISODate("2015-08-30T00:00:00Z"),$lt:ISODate("2017-12-31T00:00:00Z")}},{eid:1})
+[
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), eid: 5 },
+  { _id: ObjectId("6510441906382ed3385d0b52"), eid: 8 },
+  { _id: ObjectId("6510442206382ed3385d0b53"), eid: 9 }
+]
+company> db.emp.find({hiredate:{$gt:ISODate("2015-08-01T00:00:00Z"),$lt:ISODate("2017-12-31T00:00:00Z")}},{eid:1})
+[
+  { _id: ObjectId("651043e906382ed3385d0b4d"), eid: 3 },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), eid: 5 },
+  { _id: ObjectId("6510441906382ed3385d0b52"), eid: 8 },
+  { _id: ObjectId("6510442206382ed3385d0b53"), eid: 9 }
+]
+company> db.emp.find({designation:1},{})
+
+company> db.emp.find({},{designation:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    designation: 'Lead Developer'
+  },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), designation: 'Analyst' },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    designation: 'Salesman'
+  },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), designation: 'CEO' },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    designation: 'Developer'
+  },
+  { _id: ObjectId("6510440806382ed3385d0b50"), designation: 'Manager' },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    designation: 'Sr manager'
+  },
+  { _id: ObjectId("6510441906382ed3385d0b52"), designation: 'Analyst' },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    designation: 'Jr Developer'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    designation: 'Salesman'
+  }
+]
+company> db.emp.find({},{designation:1}).count()
+10
+company> db.emp.find({},{designation:1,eid:!}).count()
+Uncaught:
+SyntaxError: Unexpected token (1:35)
+
+> 1 | db.emp.find({},{designation:1,eid:!}).count()
+    |                                    ^
+  2 |
+
+company> db.emp.find({},{designation:1,eid:1}).count()
+10
+company> db.emp.find({},{designation:1,eid:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    designation: 'Lead Developer'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    designation: 'Analyst'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    designation: 'Salesman'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    designation: 'CEO'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    designation: 'Developer'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    designation: 'Manager'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    designation: 'Sr manager'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    designation: 'Analyst'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    designation: 'Jr Developer'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    designation: 'Salesman'
+  }
+]
+company> db.emp.distinct("designation")
+[
+  'Analyst',
+  'CEO',
+  'Developer',
+  'Jr Developer',
+  'Lead Developer',
+  'Manager',
+  'Salesman',
+  'Sr manager'
+]
+company> db.emp.distinct("designation").count()
+TypeError: db.emp.distin ... tion").count is not a function
+company> db.emp.distinct("designation")
+[
+  'Analyst',
+  'CEO',
+  'Developer',
+  'Jr Developer',
+  'Lead Developer',
+  'Manager',
+  'Salesman',
+  'Sr manager'
+]
+company> db.emp.find({salary:{$gt:10000}},{eid:1,ename:1,salary:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    salary: 15000
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    salary: 16000
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    salary: 25000
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    salary: 14000
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    salary: 17000
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    salary: 13000
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    salary: 11000
+  }
+]
+company> db.emp.find({salary:{$gt:10000}},{eid:1,ename:1,salary:1}).count()
+7
+company> db.emp.find({salary:{$gt:10000}},{eid:1}).count()
+7
+company> db.emp.find({salary:{$gt:10000}},{eid:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), eid: 1 },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), eid: 2 },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), eid: 4 },
+  { _id: ObjectId("6510440806382ed3385d0b50"), eid: 6 },
+  { _id: ObjectId("6510441006382ed3385d0b51"), eid: 7 },
+  { _id: ObjectId("6510441906382ed3385d0b52"), eid: 8 },
+  { _id: ObjectId("6510442806382ed3385d0b54"), eid: 10 }
+]
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    designation: 'Sr manager',
+    hiredate: ISODate("2012-02-08T00:00:00.000Z"),
+    salary: 17000,
+    hobbies: [ 'Dancing', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({department:"Production"},{ename:1,designation:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    ename: 'Jon',
+    designation: 'Lead Developer'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    ename: 'Arya',
+    designation: 'Developer'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    ename: 'Theon',
+    designation: 'Jr Developer'
+  }
+]
+company> db.emp.find({department:"Production"},{ename:1,designation:1}).count()
+3
+company> db.emp.find({department:"Production"},{ename:1,designation:1,department:1}).count()
+3
+company> db.emp.find({department:"Production"},{ename:1,designation:1,department:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    ename: 'Arya',
+    designation: 'Developer',
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    department: 'Production'
+  }
+]
+company> db.emp.find({ename:/^A/},{})
+[
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  }
+]
+company> db.emp.find({ename:/^o/},{})
+
+company> db.emp.find({ename:/^A|^J/},{})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  }
+]
+company> db.emp.find({ename:/^A|^J/},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' }
+]
+company> db.emp.find({eid:{$in:[1,3,7,"Arya"]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510441006382ed3385d0b51"), ename: 'Cersie' }
+]
+company> db.emp.find({eid:{$in:[1,3,7,9]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510441006382ed3385d0b51"), ename: 'Cersie' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' }
+]
+company> db.emp.find({hobbies:{$all:["Painting","Coding"]}},{ename:1})
+[ { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' } ]
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    designation: 'Sr manager',
+    hiredate: ISODate("2012-02-08T00:00:00.000Z"),
+    salary: 17000,
+    hobbies: [ 'Dancing', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({hobbies:{$all:["Painting","Speaking"]}},{ename:1})
+
+company> db.emp.find({ename:/n$/},{})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({ename:/^T|n$/},{})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({ename:/^T|n$/},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({ename:/n/},{})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({ename:/n/},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), ename: 'Dany' },
+  { _id: ObjectId("6510440806382ed3385d0b50"), ename: 'Sansa' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find9
+company.emp.find9
+company> db.emp.find({$nin:{department:"HR"}},{ename:1})
+MongoServerError: unknown top level operator: $nin. If you have a field name that starts with a '$' symbol, consider using $getField or $setField.
+company> db.emp.find({department:{$nin:"HR"}},{ename:1})
+MongoServerError: $nin needs an array
+company> db.emp.find({department:{$nin:["HR"]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), ename: 'Dany' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' },
+  { _id: ObjectId("6510441906382ed3385d0b52"), ename: 'Dahrio' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({department:{$nin:["HR"]}},{ename:1}).count()
+8
+company> db.emp.find()
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    designation: 'Lead Developer',
+    hiredate: ISODate("2013-02-15T00:00:00.000Z"),
+    salary: 15000,
+    hobbies: [ 'Reading', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    designation: 'Analyst',
+    hiredate: ISODate("2012-05-25T00:00:00.000Z"),
+    salary: 16000,
+    hobbies: [ 'Reading', 'Braingames' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("651043f306382ed3385d0b4e"),
+    eid: 4,
+    ename: 'Dany',
+    designation: 'CEO',
+    hiredate: ISODate("2009-06-03T00:00:00.000Z"),
+    salary: 25000,
+    hobbies: [ 'Reading', 'Planning' ],
+    department: 'Management'
+  },
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    designation: 'Manager',
+    hiredate: ISODate("2014-12-02T00:00:00.000Z"),
+    salary: 14000,
+    hobbies: [ 'Music', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    designation: 'Sr manager',
+    hiredate: ISODate("2012-02-08T00:00:00.000Z"),
+    salary: 17000,
+    hobbies: [ 'Dancing', 'planning' ],
+    department: 'HR'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    designation: 'Analyst',
+    hiredate: ISODate("2016-08-12T00:00:00.000Z"),
+    salary: 13000,
+    hobbies: [ 'Management', 'Games' ],
+    department: 'Testing'
+  },
+  {
+    _id: ObjectId("6510442206382ed3385d0b53"),
+    eid: 9,
+    ename: 'Theon',
+    designation: 'Jr Developer',
+    hiredate: ISODate("2017-08-19T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Reading', 'Games' ],
+    department: 'Production'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({department:{}},{ename:1})
+
+company> db.emp.find({department:{"HR"}},{ename:1})
+Uncaught:
+SyntaxError: Unexpected token (1:29)
+
+> 1 | db.emp.find({department:{"HR"}},{ename:1})
+    |                              ^
+  2 |
+
+company> db.emp.find({department:"HR"},{ename:1})
+[
+  { _id: ObjectId("6510440806382ed3385d0b50"), ename: 'Sansa' },
+  { _id: ObjectId("6510441006382ed3385d0b51"), ename: 'Cersie' }
+]
+company> db.emp.find({department:"Sales"},{ename:1})
+[
+  { _id: ObjectId("651043e906382ed3385d0b4d"), ename: 'Jamie' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company> db.emp.find({department:"Sales"},{})
+[
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({department:"Sales"},{}).count()
+2
+company> db.emp.count(department:"Sales")
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:23)
+
+> 1 | db.emp.count(department:"Sales")
+    |                        ^
+  2 |
+
+company> db.emp.count({department:"Sales"})
+DeprecationWarning: Collection.count() is deprecated. Use countDocuments or estimatedDocumentCount.
+2
+company> db.emp.count({designation:1})
+0
+company> db.emp.count("designation")
+MongoServerError: BSON field 'count.query' is the wrong type 'string', expected type 'object'
+company> db.emp.count(designation)
+ReferenceError: designation is not defined
+company> db.emp.distinct(designation)
+ReferenceError: designation is not defined
+company> db.emp.distinct({designation:1})
+MongoServerError: BSON field 'distinct.key' is the wrong type 'object', expected type 'string'
+company> db.emp.distinct("designation")
+[
+  'Analyst',
+  'CEO',
+  'Developer',
+  'Jr Developer',
+  'Lead Developer',
+  'Manager',
+  'Salesman',
+  'Sr manager'
+]
+company> db.emp.distinct("designation").count()
+TypeError: db.emp.distin ... tion").count is not a function
+company> db.emp.find({},{designation:1}).count()
+10
+company> db.emp.distinct({},{designation:1}).count()
+MongoServerError: BSON field 'distinct.key' is the wrong type 'object', expected type 'string'
+company> db.emp.find({},{ename:1,eid:1,})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), eid: 1, ename: 'Jon' },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion'
+  },
+  { _id: ObjectId("651043e906382ed3385d0b4d"), eid: 3, ename: 'Jamie' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), eid: 4, ename: 'Dany' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), eid: 5, ename: 'Arya' },
+  { _id: ObjectId("6510440806382ed3385d0b50"), eid: 6, ename: 'Sansa' },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie'
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio'
+  },
+  { _id: ObjectId("6510442206382ed3385d0b53"), eid: 9, ename: 'Theon' },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn'
+  }
+]
+company> db.emp.find({salary:{$gt:10000,$lt:20000}},{ename:1,eid:1,salary:1})
+[
+  {
+    _id: ObjectId("65103e1006382ed3385d0b4b"),
+    eid: 1,
+    ename: 'Jon',
+    salary: 15000
+  },
+  {
+    _id: ObjectId("651043e106382ed3385d0b4c"),
+    eid: 2,
+    ename: 'Tirrion',
+    salary: 16000
+  },
+  {
+    _id: ObjectId("6510440806382ed3385d0b50"),
+    eid: 6,
+    ename: 'Sansa',
+    salary: 14000
+  },
+  {
+    _id: ObjectId("6510441006382ed3385d0b51"),
+    eid: 7,
+    ename: 'Cersie',
+    salary: 17000
+  },
+  {
+    _id: ObjectId("6510441906382ed3385d0b52"),
+    eid: 8,
+    ename: 'Dahrio',
+    salary: 13000
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    salary: 11000
+  }
+]
+company> db.emp.find({salary:{$gt:10000,$lt:20000}},{salary:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), salary: 15000 },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), salary: 16000 },
+  { _id: ObjectId("6510440806382ed3385d0b50"), salary: 14000 },
+  { _id: ObjectId("6510441006382ed3385d0b51"), salary: 17000 },
+  { _id: ObjectId("6510441906382ed3385d0b52"), salary: 13000 },
+  { _id: ObjectId("6510442806382ed3385d0b54"), salary: 11000 }
+]
+company> db.emp.find({salary:{$gte:15000}},{salary:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), salary: 15000 },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), salary: 16000 },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), salary: 25000 },
+  { _id: ObjectId("6510441006382ed3385d0b51"), salary: 17000 }
+]
+company> db.emp.find(salary:10000 , department:"Sales")
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:18)
+
+> 1 | db.emp.find(salary:10000 , department:"Sales")
+    |                   ^
+  2 |
+
+company> db.emp.find({salary:10000 , department:"Sales"})
+
+company> db.emp.find({salary:10000})
+[
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  }
+]
+company> db.emp.find({department:"Sales"})
+[
+  {
+    _id: ObjectId("651043e906382ed3385d0b4d"),
+    eid: 3,
+    ename: 'Jamie',
+    designation: 'Salesman',
+    hiredate: ISODate("2015-08-03T00:00:00.000Z"),
+    salary: 9000,
+    hobbies: [ 'Speaking', 'Planning' ],
+    department: 'Sales'
+  },
+  {
+    _id: ObjectId("6510442806382ed3385d0b54"),
+    eid: 10,
+    ename: 'Bronn',
+    designation: 'Salesman',
+    hiredate: ISODate("2014-05-29T00:00:00.000Z"),
+    salary: 11000,
+    hobbies: [ 'Speaking', 'Reading' ],
+    department: 'Sales'
+  }
+]
+company> db.emp.find({department:"Sales",salary:10000})
+
+company> db.emp.find({department:"Production",salary:10000})
+[
+  {
+    _id: ObjectId("651043fa06382ed3385d0b4f"),
+    eid: 5,
+    ename: 'Arya',
+    designation: 'Developer',
+    hiredate: ISODate("2017-10-17T00:00:00.000Z"),
+    salary: 10000,
+    hobbies: [ 'Painting', 'Coding' ],
+    department: 'Production'
+  }
+]
+company> db.emp.find({hobbies:{$in:["Reading","Painting"]}},{ename:1})
+[
+  { _id: ObjectId("65103e1006382ed3385d0b4b"), ename: 'Jon' },
+  { _id: ObjectId("651043e106382ed3385d0b4c"), ename: 'Tirrion' },
+  { _id: ObjectId("651043f306382ed3385d0b4e"), ename: 'Dany' },
+  { _id: ObjectId("651043fa06382ed3385d0b4f"), ename: 'Arya' },
+  { _id: ObjectId("6510442206382ed3385d0b53"), ename: 'Theon' },
+  { _id: ObjectId("6510442806382ed3385d0b54"), ename: 'Bronn' }
+]
+company>

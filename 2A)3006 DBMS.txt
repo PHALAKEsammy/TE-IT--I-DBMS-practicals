@@ -1,0 +1,130 @@
+Assignment No:-2 ( Aggregation & Indexes )
+
+Subject: LP – I( ADBMS)
+Student Name:-Sangram Phalake
+
+Problem Statement
+Implement aggregation with customer collection using MongoDB. Customer collection consist of
+following data
+
+> db.customer.find();
+{ "_id" : ObjectId("54265694517b30434f6a2bdc"), "custID" : "A123", "Amount" : 500, "status" :
+"A" }
+{ "_id" : ObjectId("542656eb517b30434f6a2bdd"), "custID" : "A123", "Amount" : 250, "status" :
+"A" }
+{ "_id" : ObjectId("54265726517b30434f6a2bde"), "custID" : "B212", "Amount" : 200, "status" :
+"A" }
+{ "_id" : ObjectId("54265757517b30434f6a2bdf"), "custID" : "A123", "Amount" : 300, "status" :
+"D" }
+
+
+Execute following queries on employee collection.
+PART-A
+
+
+a) Find the total amount of each customer.
+
+customer> db.customer.aggregate([{$group:{_id:"$custID" , TotalAmount:{$sum:"$Amount"}}}])
+[
+  { _id: 'A123', TotalAmount: 1050 },
+  { _id: 'B212', TotalAmount: 200 }
+]
+
+
+b) Find the total amount of each customer whose status is A.
+
+customer> db.customer.aggregate({$match:{status:"A"}},{$group:{_id:"null",TotalAmountOfCustomerWhoseStatusIs_A:{$sum:"$Amount"}}})
+[ { _id: 'null', TotalAmountOfCustomerWhoseStatusIs_A: 950 } ]
+
+c) Find the minimum total amount of each customer whose Status is A.
+
+customer> db.customer.aggregate({$match:{status:"A"}},{$group:{_id:"null",MinimumTotalAmountOfEachCustomerWithStatus_A:{$min:"$Amount"}}})
+[ { _id: 'null', MinimumTotalAmountOfEachCustomerWithStatus_A: 200 } ]
+
+
+d) Find the maximum total amount of each customer whose Status is A.
+
+customer> db.customer.aggregate({$match:{status:"A"}},{$group:{_id:"Null",MaximumTotalAmountOfEachCustomerWithStatus_A:{$max:"$Amount"}}})
+[ { _id: 'Null', MaximumTotalAmountOfEachCustomerWithStatus_A: 500 } ]
+
+
+e) Find the average total amount of each customer whose Status is A.
+
+customer> db.customer.aggregate({$match:{status:"A"}},{$group:{_id:"null",AverageTotalAmountOfEachCustomerWithStatus_A:{$avg:"$Amount"}}})
+[
+  {
+    _id: 'null',
+    AverageTotalAmountOfEachCustomerWithStatus_A: 316.6666666666667
+  }
+]
+
+
+
+
+
+PART-B
+
+f) Create index on custID.
+
+customer> db.customer.createIndex({custID:1})
+custID_1
+
+g) Execute getIndexes.
+
+customer> db.customer.getIndexes({})
+[
+  { v: 2, key: { _id: 1 }, name: '_id_' },
+  { v: 2, key: { custID: 1 }, name: 'custID_1' }
+]
+
+h) Drop the index created.
+
+customer> db.customer.dropIndex({custID:1})
+{ nIndexesWas: 2, ok: 1 }
+
+customer> db.customer.getIndexes()
+[ { v: 2, key: { _id: 1 }, name: '_id_' } ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
